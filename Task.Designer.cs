@@ -35,7 +35,7 @@
             btn_complete = new Button();
             lbl_duedate = new Label();
             btn_edit = new Button();
-            progressBar1 = new ProgressBar();
+            bar_urgency = new Panel();
             SuspendLayout();
             // 
             // lbl_taskname
@@ -114,20 +114,19 @@
             btn_edit.UseVisualStyleBackColor = true;
             btn_edit.Click += btn_edit_Click;
             // 
-            // progressBar1
+            // bar_urgency
             // 
-            progressBar1.Location = new Point(1, 47);
-            progressBar1.Maximum = 1;
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(654, 12);
-            progressBar1.TabIndex = 7;
-            progressBar1.Value = 1;
+            bar_urgency.BackColor = Color.Crimson;
+            bar_urgency.Location = new Point(3, 46);
+            bar_urgency.Name = "bar_urgency";
+            bar_urgency.Size = new Size(652, 10);
+            bar_urgency.TabIndex = 7;
             // 
             // Task
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(progressBar1);
+            Controls.Add(bar_urgency);
             Controls.Add(btn_edit);
             Controls.Add(lbl_duedate);
             Controls.Add(btn_complete);
@@ -151,6 +150,6 @@
         private Button btn_complete;
         private Label lbl_duedate;
         private Button btn_edit;
-        private ProgressBar progressBar1;
+        private Panel bar_urgency;
     }
 }

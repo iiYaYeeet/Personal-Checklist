@@ -15,14 +15,15 @@ namespace Checklist
     {
         public string taskName { get; set; } = "blank";
         public string taskSource { get; set; } = "blank";
-        public string taskDueDate { get; set; } = "blank";
-        public List<string> taskParts { get; set; } = new List<string>();
-        public Task(string name, string source, DateTime dueDate, List<string> tasks)
+        public DateOnly taskDueDate { get; set; }
+        public string[] taskParts { get; set; }
+        public Task(string name, string source, DateOnly dueDate ,string[] tasks)
         {
             InitializeComponent();
             lbl_taskname.Text = name;
             lbl_source.Text = source;
             lbl_duedate.Text = dueDate.ToString();
+            taskDueDate = dueDate;
 
             list_tasks.Items.Clear();
 
@@ -33,6 +34,22 @@ namespace Checklist
             foreach (string part in taskParts)
             {
                 list_tasks.Items.Add(part);
+            }
+
+            int diff = dueDate.DayNumber - DateOnly.FromDateTime(DateTime.Today).DayNumber;
+
+            switch (diff)
+            {
+
+                case < 1:
+                    bar_urgency.BackColor = Color.Crimson;
+                    break;
+                case < 3:
+                    bar_urgency.BackColor = Color.Yellow;
+                    break;
+                case < 5:
+                    bar_urgency.BackColor = Color.Green;
+                    break;
             }
         }
         private void list_tasks_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,6 +63,8 @@ namespace Checklist
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Tasklist.tasks.Remove(this);
+            Tasklist.form.UpdateBoard();
             Dispose();
         }
 

@@ -31,6 +31,8 @@ namespace Checklist
 
                 SQLdata.Accessstring = login;
 
+                Tasklist.form.ReadSQL();
+
                 Debug.WriteLine("Login Succesful");
                 Dispose();
             }
