@@ -16,7 +16,6 @@ namespace Checklist
     {
         private string username;
         private string password;
-        public static string sqlstring = "Server=192.168.1.168;Port=3306;Database=Checklist;";
         public Login()
         {
             InitializeComponent();
@@ -24,7 +23,7 @@ namespace Checklist
 
         private async void btn_login_Click(object sender, EventArgs e)
         {
-            string login = sqlstring + $";Uid={username};Pwd={password};";
+            string login = SQLdata.Accessstring + $";Uid={username};Pwd={password};";
             try
             {
                 await using var sqlconnection = new MySqlConnection(login);

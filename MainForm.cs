@@ -15,14 +15,4 @@ namespace Checklist
             
         }
     }
-
-    public static class SQLdata
-    {
-        public static string Accessstring;
-        public static string GetAccessstring
-        {
-            get { return Accessstring; }
-            set { Accessstring = value; }
-        }
-    }
 }
