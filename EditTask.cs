@@ -10,14 +10,22 @@ using System.Windows.Forms;
 
 namespace Checklist
 {
-    public partial class NewTask : Form
+    public partial class EditTask : Form
     {
         public string task, source;
         public DateOnly duedate = DateOnly.FromDateTime(DateTime.Now);
         public string[] subtasks;
-        public NewTask()
+        public EditTask(Task tobeedited)
         {
             InitializeComponent();
+            task = tobeedited.taskName;
+            txt_task.Text = task;
+            source = tobeedited.taskSource;
+            txt_source.Text = source;
+            duedate = tobeedited.taskDueDate;
+            dtp_duedate.Value = duedate.ToDateTime(TimeOnly.MinValue);
+            subtasks = tobeedited.taskParts;
+            txt_subtasks.Lines = subtasks;
         }
 
         private void txt_task_TextChanged(object sender, EventArgs e)
@@ -45,7 +53,7 @@ namespace Checklist
         {
             Task tbd = new Task(task, source, duedate, subtasks);
             Tasklist.tasks.Add(tbd);
-            Tasklist.form.InsertSQL(tbd);
+            Tasklist.form.UpdateSQL(tbd);
             Tasklist.form.UpdateBoard();
             Dispose();
         }
