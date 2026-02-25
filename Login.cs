@@ -19,10 +19,41 @@ namespace Checklist
         public Login()
         {
             InitializeComponent();
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.InitialDirectory = "C://Documents//";
+            ofd.Filter = "txt files (*.txt)|*.txt";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                SQLdata.filepath = ofd.FileName;
+            }
+
+            ofd = new OpenFileDialog();
+            ofd.InitialDirectory = "C://Documents//Checklist//";
+            ofd.Filter = "txt files (*.txt)|*.txt";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                SQLdata.loginpath = ofd.FileName;
+            }
         }
 
         private async void btn_login_Click(object sender, EventArgs e)
         {
+            try
+            {
+                StreamReader rd = new StreamReader(SQLdata.loginpath);
+
+                username = rd.ReadLine();
+                password = rd.ReadLine();
+
+                rd.Close();
+            }
+            catch (FileNotFoundException ex)
+            {
+                Debug.WriteLine($"Error: {ex.Message}");
+            }
             string login = SQLdata.Accessstring + $";Uid={username};Pwd={password};";
             try
             {

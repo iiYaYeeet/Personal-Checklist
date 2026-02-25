@@ -13,27 +13,25 @@ namespace Checklist
 {
     public partial class Task : UserControl
     {
-        public string taskName;
-        public string taskSource;
-        public DateOnly taskDueDate;
-        public string[] taskParts;
+        public Taskdata data;
         public Task(string name, string source, DateOnly dueDate ,string[] tasks)
         {
+            data = new Taskdata();
             InitializeComponent();
             lbl_taskname.Text = name;
-            taskName = name;
+            data.taskName = name;
             lbl_source.Text = source;
-            taskSource = source;
+            data.taskSource = source;
             lbl_duedate.Text = dueDate.ToString();
-            taskDueDate = dueDate;
+            data.taskDueDate = dueDate;
 
             list_tasks.Items.Clear();
 
             bar_progress.Minimum = 0;
 
-            taskParts = tasks;
+            data.taskParts = tasks;
 
-            foreach (string part in taskParts)
+            foreach (string part in data.taskParts)
             {
                 list_tasks.Items.Add(part);
             }
@@ -65,7 +63,7 @@ namespace Checklist
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Tasklist.form.DeleteTask(taskName);
+            Tasklist.form.DeleteTask(data.taskName);
             Tasklist.tasks.Remove(this);
             Tasklist.form.UpdateBoard();
             Dispose();
@@ -77,5 +75,13 @@ namespace Checklist
             EditTask task = new EditTask(this);
             task.ShowDialog();
         }
+    }
+
+    public class Taskdata
+    {
+        public string taskName;
+        public string taskSource;
+        public DateOnly taskDueDate;
+        public string[] taskParts;
     }
 }

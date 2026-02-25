@@ -53,7 +53,7 @@
             lbl_source.AutoSize = true;
             lbl_source.Font = new Font("Tahoma", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_source.ImageAlign = ContentAlignment.MiddleLeft;
-            lbl_source.Location = new Point(535, 12);
+            lbl_source.Location = new Point(377, 12);
             lbl_source.Name = "lbl_source";
             lbl_source.Size = new Size(68, 23);
             lbl_source.TabIndex = 1;
@@ -67,7 +67,7 @@
             bar_progress.Location = new Point(3, 231);
             bar_progress.Margin = new Padding(3, 2, 3, 2);
             bar_progress.Name = "bar_progress";
-            bar_progress.Size = new Size(652, 20);
+            bar_progress.Size = new Size(442, 20);
             bar_progress.TabIndex = 2;
             // 
             // list_tasks
@@ -76,7 +76,7 @@
             list_tasks.Location = new Point(3, 61);
             list_tasks.Margin = new Padding(3, 2, 3, 2);
             list_tasks.Name = "list_tasks";
-            list_tasks.Size = new Size(652, 166);
+            list_tasks.Size = new Size(442, 166);
             list_tasks.TabIndex = 3;
             list_tasks.SelectedIndexChanged += list_tasks_SelectedIndexChanged;
             // 
@@ -86,7 +86,7 @@
             btn_complete.Location = new Point(10, 260);
             btn_complete.Margin = new Padding(3, 2, 3, 2);
             btn_complete.Name = "btn_complete";
-            btn_complete.Size = new Size(175, 34);
+            btn_complete.Size = new Size(125, 34);
             btn_complete.TabIndex = 4;
             btn_complete.Text = "Complete Task";
             btn_complete.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@
             // 
             lbl_duedate.AutoSize = true;
             lbl_duedate.Font = new Font("Tahoma", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_duedate.Location = new Point(286, 265);
+            lbl_duedate.Location = new Point(181, 270);
             lbl_duedate.Name = "lbl_duedate";
             lbl_duedate.Size = new Size(63, 18);
             lbl_duedate.TabIndex = 5;
@@ -105,10 +105,10 @@
             // btn_edit
             // 
             btn_edit.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_edit.Location = new Point(480, 260);
+            btn_edit.Location = new Point(314, 260);
             btn_edit.Margin = new Padding(3, 2, 3, 2);
             btn_edit.Name = "btn_edit";
-            btn_edit.Size = new Size(175, 34);
+            btn_edit.Size = new Size(131, 34);
             btn_edit.TabIndex = 6;
             btn_edit.Text = "Edit Task";
             btn_edit.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             bar_urgency.BackColor = Color.Crimson;
             bar_urgency.Location = new Point(3, 46);
             bar_urgency.Name = "bar_urgency";
-            bar_urgency.Size = new Size(652, 10);
+            bar_urgency.Size = new Size(442, 10);
             bar_urgency.TabIndex = 7;
             // 
             // Task
@@ -136,7 +136,7 @@
             Controls.Add(lbl_taskname);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Task";
-            Size = new Size(658, 296);
+            Size = new Size(448, 296);
             ResumeLayout(false);
             PerformLayout();
         }

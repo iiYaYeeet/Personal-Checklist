@@ -18,13 +18,13 @@ namespace Checklist
         public EditTask(Task tobeedited)
         {
             InitializeComponent();
-            task = tobeedited.taskName;
+            task = tobeedited.data.taskName;
             txt_task.Text = task;
-            source = tobeedited.taskSource;
+            source = tobeedited.data.taskSource;
             txt_source.Text = source;
-            duedate = tobeedited.taskDueDate;
+            duedate = tobeedited.data.taskDueDate;
             dtp_duedate.Value = duedate.ToDateTime(TimeOnly.MinValue);
-            subtasks = tobeedited.taskParts;
+            subtasks = tobeedited.data.taskParts;
             txt_subtasks.Lines = subtasks;
         }
 
