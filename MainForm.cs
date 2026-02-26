@@ -154,6 +154,7 @@ namespace Checklist
 
         public void UpdateBoard()
         {
+            //update visual board of tasks
             panel1.Controls.Clear();
             foreach (Task task in Tasklist.tasks)
             {
@@ -163,6 +164,7 @@ namespace Checklist
 
         private void btn_write_Click(object sender, EventArgs e)
         {
+            //write to text backup
             using (StreamWriter sw = new StreamWriter(SQLdata.filepath))
             {
                 List<Taskdata> data = new List<Taskdata>();
@@ -178,6 +180,7 @@ namespace Checklist
 
         private void btn_read_Click(object sender, EventArgs e)
         {
+            //read from text backup
             using (StreamReader sr = new StreamReader(SQLdata.filepath))
             {
                 string json = sr.ReadToEnd();

@@ -12,6 +12,7 @@ namespace Checklist
 {
     public partial class NewTask : Form
     {
+        //task values
         public string task, source;
         public DateOnly duedate = DateOnly.FromDateTime(DateTime.Now);
         public string[] subtasks;
@@ -22,30 +23,36 @@ namespace Checklist
 
         private void txt_task_TextChanged(object sender, EventArgs e)
         {
+            //set task name
             task = txt_task.Text;
         }
 
         private void txt_source_TextChanged(object sender, EventArgs e)
         {
-
+            //set task source
             source = txt_source.Text;
         }
 
         private void txt_subtasks_TextChanged(object sender, EventArgs e)
         {
+            //set subtasks
             subtasks = txt_subtasks.Lines;
         }
 
         private void dtp_duedate_ValueChanged(object sender, EventArgs e)
         {
+            //set duedate
             duedate = DateOnly.FromDateTime(dtp_duedate.Value);
         }
 
         private void Submit_Click(object sender, EventArgs e)
         {
+            //push task
             Task tbd = new Task(task, source, duedate, subtasks);
             Tasklist.tasks.Add(tbd);
+            //push sql
             Tasklist.form.InsertSQL(tbd);
+            //update board
             Tasklist.form.UpdateBoard();
             Dispose();
         }

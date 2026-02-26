@@ -19,6 +19,7 @@ namespace Checklist
         public Login()
         {
             InitializeComponent();
+            //set file backup
             OpenFileDialog ofd = new OpenFileDialog();
 
             ofd.InitialDirectory = "C://Documents//";
@@ -29,6 +30,7 @@ namespace Checklist
                 SQLdata.filepath = ofd.FileName;
             }
 
+            //set sql login data
             ofd = new OpenFileDialog();
             ofd.InitialDirectory = "C://Documents//Checklist//";
             ofd.Filter = "txt files (*.txt)|*.txt";
@@ -41,6 +43,7 @@ namespace Checklist
 
         private async void btn_login_Click(object sender, EventArgs e)
         {
+            //attempt to read login file
             try
             {
                 StreamReader rd = new StreamReader(SQLdata.loginpath);
@@ -54,6 +57,7 @@ namespace Checklist
             {
                 Debug.WriteLine($"Error: {ex.Message}");
             }
+            //run normal sql
             string login = SQLdata.Accessstring + $";Uid={username};Pwd={password};";
             try
             {
@@ -75,14 +79,16 @@ namespace Checklist
 
         private void txt_user_TextChanged(object sender, EventArgs e)
         {
+            //update username
             username = txt_user.Text;
-            Debug.WriteLine(username);
+            //Debug.WriteLine(username);
         }
 
         private void txt_password_TextChanged(object sender, EventArgs e)
         {
+            //update password
             password = txt_password.Text;
-            Debug.WriteLine(password);
+            //Debug.WriteLine(password);
         }
     }
 }
